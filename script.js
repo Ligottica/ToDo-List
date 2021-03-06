@@ -19,7 +19,6 @@ function createListElement() {
 }
 
 function addListAfterClick() {
-    playSound('https://www.pacdv.com/sounds/applause-sounds/app-5.mp3');
     if(inputLength() > 0) {   
         createListElement();
     }
