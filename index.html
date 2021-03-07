@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/625d0d9a75.js"></script>
     <title>My Shopping List</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -12,13 +13,17 @@
 <body>
     <div class="card">
         <img class= "pin" src="Red-Pin-Transparent.png" alt="">
-        <div class="header">
+        <button class="sound">
+            <i class="fa fa-volume-up fa-lg on" aria-hidden="true"></i>
+            <i class="fa fa-volume-off fa-lg off" aria-hidden="true"></i>
+        </button>
+            <div class="header">
             <h1>My Shopping List</h1>
         </div>
         <div class="container">
-            <input class="userInput" id="shopText" type="text" placeholder="I need...">
+            <input class="userInput" id="shopText" type="text" placeholder="I need..." autofocus>
             <div class="button-container">
-                <button class="button button-add">Jot down</button>
+                <button class="button button-add">Got it!</button>
                 <button class="button button-delete">Reset</button>
             </div>
             <ul class="list"> 

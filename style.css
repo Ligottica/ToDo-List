@@ -13,6 +13,20 @@ body {
     padding: 20px 10px;
 }
 
+.sound {
+    background-color: transparent;
+    border: transparent;
+}
+
+.sound:hover .on,
+.sound .off {
+    display: none
+}
+
+.sound:hover .off {
+    display: inline;
+}
+
 .pin {
     position:absolute;
     width: 50px;
@@ -63,8 +77,13 @@ li {
     text-decoration: overline #9de0d5;
 }
 
+
 ul :first-child {
     text-decoration: none; 
+}
+
+.done {
+    text-decoration: line-through !important;
 }
 
 .userInput {
@@ -96,4 +115,16 @@ ul :first-child {
 
 .button-delete:hover {
     background-color: #eb8287;
+}
+
+.custButton {
+    margin-left: 5px;
+    background-color: transparent;
+    border: none;
+    color: #EB8287;
+    transition: transform .8s 
+}
+
+.custButton:hover {
+    transform:rotate(90deg);
 }

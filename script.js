@@ -2,51 +2,80 @@ const buttonAd = document.querySelector(".button-add");
 const buttonRemove = document.querySelector(".button-delete");
 const input = document.querySelector(".userInput");
 const ul = document.querySelector(".list");
+const buttonVolume = document.querySelector(".sound");
+let sounds = true;
 
-function inputLength() {
+
+function muteMe(elem) {
+    sounds === true ? sounds = false : sounds = true;
+}
+
+// Check length of input field
+function addItemLength() {
     return input.value.length;
 }
 
-function createListElement() {
+// Check how many li elements exist
+function checkLis() {
+    return document.getElementsByTagName('li').length;
+}
+
+//create new list item
+function createListItem() {
+     // Create li element, style it and append it to ul
     const li = document.createElement("li");
-    // crear un list item
     li.appendChild(document.createTextNode(input.value));
-    // ponerle texto
     ul.appendChild(li);
-    // adjuntarlo a la lista
+    // toggle between class when clicked
+    li.addEventListener('click', toggleDone);
+    // erase textbox content
     input.value = "";
-    // para que se borre el contenido del textbox
-}
-
-function addListAfterClick() {
-    if(inputLength() > 0) {   
-        createListElement();
+    // create delete button, style it, append to li
+    const delButton = document.createElement('button');
+    // create icon from fontawesome
+    const delX = document.createElement('i');
+    delX.classList.add('fa','fa-times','fa-2x');
+    delButton.classList.add('custButton');
+    delButton.appendChild(delX);
+    delButton.addEventListener('click', delItem);
+    li.append(delButton);
+    // Toggle line-through on click
+    function toggleDone() {
+        li.classList.toggle('done');
+        playSound();
+    }
+    function playSound() {
+        if(sounds) {
+            var sound = new Audio("line.mp3");
+            sound.play();
+        }
+    }
+    // Delete item
+    function delItem() {
+        li.remove();
     }
 }
 
-function addListAfterKeypress(event) {
-    if(inputLength() > 0 && event.key === "Enter") {   
-            createListElement();
+    // On click
+function addClick() {
+    if(addItemLength() > 0) {
+      createListItem();
+    }
+  }
+
+  // On keypress enter
+function addKey(event) {
+    if(addItemLength() > 0 && event.keyCode == 13) {
+      createListItem();
     }
 }
 
-function removeList() {
-    ul.innerHTML = '';
+    // on click reset
+function reset() {
+    ul.innerHTML = "";
 }
 
-function crossOut() {
-
-}
-
-buttonAd.addEventListener("click", addListAfterClick);
-buttonRemove.addEventListener("click", removeList);
-input.addEventListener("keypress", addListAfterKeypress);
-
-// Clicar en el list item y tachar el texto
-
-var yourNumber = "{{ your number in string}}"
-var yourMessage = "{{ your message in string }}"
-
-// %20 mean space in link
-// If you already had an array then you just join them with '%20'
-// easy right
+buttonVolume.addEventListener("click", muteMe);
+buttonAd.addEventListener("click", addClick);
+input.addEventListener("keypress", addKey);
+buttonRemove.addEventListener("click", reset);
