@@ -128,3 +128,28 @@ ul :first-child {
 .custButton:hover {
     transform:rotate(90deg);
 }
+
+@media all and (max-width:400px) {
+    .card {
+        width:300px;
+    }
+
+    body {
+        max-width: 400px;
+    }
+    .button {
+       margin: 0.3em;
+    }
+    .container {
+        font-size: 21px;
+    }
+    .userInput {
+        width:91%;
+    }
+    .header {
+        font-size:16px;
+    }
+}
+
+
+
